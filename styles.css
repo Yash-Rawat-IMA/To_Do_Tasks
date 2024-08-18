@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: #333;
+    perspective: 1000px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#app {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    max-height: 80vh;
+    overflow-y: auto;
+    transform: rotateY(-5deg) rotateX(5deg);
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+}
+
+#app:hover {
+    transform: rotateY(0) rotateX(0);
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0072ff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#toggle-dark-mode {
+    margin-bottom: 20px;
+    background-color: #0072ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 114, 255, 0.3);
+}
+
+#toggle-dark-mode:hover {
+    background-color: #00c6ff;
+    box-shadow: 0 15px 30px rgba(0, 198, 255, 0.4);
+}
+
+#task-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+#task-input, #due-date-input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #0072ff;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#task-input:focus, #due-date-input:focus {
+    outline: none;
+    border-color: #00c6ff;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+}
+
+button {
+    background-color: #0072ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 114, 255, 0.3);
+}
+
+button:hover {
+    background-color: #00c6ff;
+    box-shadow: 0 15px 30px rgba(0, 198, 255, 0.4);
+}
+
+#task-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: #f0f4f8;
+    border: 2px solid #0072ff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 114, 255, 0.1);
+    transition: all 0.3s ease;
+    transform: rotateY(0deg);
+}
+
+.task.completed {
+    text-decoration: line-through;
+    opacity: 0.7;
+    background: #d4edda;
+    border-color: #28a745;
+}
+
+.task .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.task input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.task button {
+    padding: 5px;
+    font-size: 0.9rem;
+}
+
+.task button.edit:hover {
+    background-color: #ffc107;
+}
+
+.task button.delete:hover {
+    background-color: #dc3545;
+}
+
+@media (max-width: 768px) {
+    #app {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #toggle-dark-mode, button {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode #app {
+    background-color: #1e1e1e;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode #task-input, 
+body.dark-mode #due-date-input, 
+body.dark-mode button {
+    background-color: #333;
+    color: #ffffff;
+    border: 2px solid #00c6ff;
+}
+
+body.dark-mode .task {
+    background-color: #2e2e2e;
+    border-color: #00c6ff;
+    box-shadow: 0 10px 20px rgba(0, 198, 255, 0.1);
+}
+
+body.dark-mode .task.completed {
+    background-color: #1e1e1e;
+    border-color: #28a745;
+}
+
+body.dark-mode #toggle-dark-mode {
+    background-color: #333;
+    color: #ffffff;
+}
